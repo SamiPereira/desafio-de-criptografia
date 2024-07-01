@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+<body>
+    <textarea name="entrada" id="entrada"></textarea>
+    <textarea name="saida" id="saida"></textarea>
+    <button onclick="Criptografar()" id="criptografar">Criptografar</button>
+    <button onclick="Descriptografar()" id="descriptografar">Descriptografar</button>
+    <div id="apresentacao"></div>
+    <div><p>Só aceita letra minúsculas e sem acento</p></div>
+    <script>
+        function Criptografar () {
+            let temp = ''
+            let inputEntrada = document.getElementById('entrada')
+            let saida = document.getElementById('apresentacao')
+            let texto = inputEntrada.value 
+            for (let i = 0; i < texto.length; i++) {
+                if(texto[i] == 'i') {
+                    temp = temp + 'imes'
+                }
+                else if(texto[i] == 'e') {
+                    temp = temp + 'enter'
+                }
+                else if(texto[i] == 'a') {
+                    temp = temp + 'ai'
+                }
+                else if(texto[i] == 'o') {
+                    temp = temp + 'ober'
+                }
+                else if(texto[i] == 'u') {
+                    temp = temp + 'ufat'
+                }
+                else {
+                    temp = temp + texto[i]
+                }
+           } 
+            saida.innerText= temp
+        }
+
+        function Descriptografar () {
+            let temp = ''
+            let inputSaida = document.getElementById('saida')
+            let saida = document.getElementById('apresentacao')
+            let texto = inputSaida.value 
+            temp = texto.replaceAll('imes', 'i').replaceAll('enter', 'e').replaceAll('ai', 'a').replaceAll('ober', 'o').replaceAll('ufat', 'u')
+            saida.innerText= temp
+        }
+        
+    </script>
+</body>
+</html>
